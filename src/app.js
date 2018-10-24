@@ -32,14 +32,14 @@ var app = new Vue({
         { id: "2"},
         { id: "1"},
         { id: "0", class: ['item-basis-2-3']},
-        {id: "."}
+        {id: ".", label: "point"}
     ],
     operators: {
       plus: {id: "+", value: "+", label: "plus", display: "&#43;"},
       minus: {id: "-", value: "-", label: "minus", display: "&#8722;"},
       divide: {id: "/", value: "/", label: "divide", display: "&#247;"},
       multiply: {id: "*", value: "*", label: "multiply", display: "&#215;"},
-      exponent: {id: "**", value: "**", label: "exponent", display: "&#94;"}
+      exponent: {id: "**", value: "**", label: "exponentiate", display: "&#94;"}
     },
   },
   methods: {

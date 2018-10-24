@@ -31,24 +31,27 @@
             ></num-button>
             <num-button
               v-for="char in characters"
-              @click.native="appendChar(char)"
               :key="char.id"
+              @click.native="appendChar(char)"
+              :id="char.id"
               :value="char.id"
               :class="char.class"
               :display="char.id"
+              :label="char.id"
             ></num-button>
             <num-button
               @click.native="displaySum(sum)"
               :display="'='"
               class="item-basis-1-1"
               label="equals"
+              id="equals"
             ></num-button>
           </div>
           <div class="flex-inline cont-2">
             <num-button
               v-for="op in operators"
-              @click.native="appendChar(op)"
               :key="op.id"
+              @click.native="appendChar(op)"
               :id="op.id"
               :value="op.value"
               :label="op.label"
