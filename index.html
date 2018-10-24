@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="css/master.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="calculator-container">
+        <span class="block margin-b-10-xs">
+          <input type="text" ref="input" v-model="sum"></input>
+        </span>
+        <div class="container-flex">
+          <div class="flex-inline cont-1">
+            <num-button
+              @click.native="clearSum()"
+              class="item-basis-2-3"
+              label="Clear"
+              display="C"
+            ></num-button>
+            <num-button
+              @click.native="undoChar()"
+              :display='icons.backspace'
+              label="backspace"
+            ></num-button>
+            <num-button
+              v-for="char in characters"
+              @click.native="appendChar(char)"
+              :key="char.id"
+              :value="char.id"
+              :class="char.class"
+              :display="char.id"
+            ></num-button>
+            <num-button
+              @click.native="displaySum(sum)"
+              :display="'='"
+              class="item-basis-1-1"
+              label="equals"
+            ></num-button>
+          </div>
+          <div class="flex-inline cont-2">
+            <num-button
+              v-for="op in operators"
+              @click.native="appendChar(op)"
+              :key="op.id"
+              :id="op.id"
+              :value="op.value"
+              :label="op.label"
+              :display="op.display"
+            ></num-button>
+          </div>
+        </div>
+        </div>
+      </div>
+		</div>
+    <!-- TODO make tabbing easier between the block of numbers and the block of operators, using arrow keys to then navigate inside each block -->
+    <script src="./src/app.js"></script>
+  </body>
+</html>
